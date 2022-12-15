@@ -11,7 +11,7 @@ const {
   calculateSurroundingMines,
 } = require("../src/template");
 
-describe("This is a testsuite for a game called Minesweeper. The goal of the game is to ADD LATER", () => {
+describe("This is a testsuite for a game called Minesweeper. The goal of the game is to open all cells that do not contain a mine", () => {
   describe("Minesweeper is played on a game board, which is a square grid. We need to create a starting version of the grid first, filled with 0s", () => {
     it("1x1 --> [[0]]", () => {
       expect(createInitialGrid(1)).toEqual([[0]]);
@@ -42,7 +42,7 @@ describe("This is a testsuite for a game called Minesweeper. The goal of the gam
 - - -`);
     });
   });
-  describe("Mines have to be added to the game board. The mines are represented by Xs", () => {
+  describe("Mines have to be added to the game board. The mines are represented by Xs and placed on provided coordinates", () => {
     it("x0y0 --> [[X,0,0],[0,0,0],[0,0,0]]", () => {
       const grid = createInitialGrid(3);
       addMineToGrid(grid, 0, 0);
@@ -230,4 +230,13 @@ describe("This is a testsuite for a game called Minesweeper. The goal of the gam
       });
     });
   });
+  // describe("When a user clicks a cell, the game board in the log needs to be updated", () => {
+  //   it(`User clicks on x0y0 --> 0 - -
+  //                               - - -
+  //                               - - -`, () => {
+  //     const grid = [[0, 0, 0], [0, "X", 0], [0, 0, 0]];
+  //     const logGrid = [[0, 0, 0], [0, "X", 0], [0, 0, 0]]
+  //     expect(updateLogGrid(log, grid, 0, 0)).toEqual("0 - -\n- - -\n- - -");
+  //                               });
+  //                             });
 });

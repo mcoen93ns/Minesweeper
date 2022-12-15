@@ -71,3 +71,15 @@ Consider this grid: [[0, 0, 0], [0, X, 0], [0, 0, 0]]
 ✔ x: 1, y: 1 --> true
 ✔ x: 2, y: 2 --> false
 
+Click on a cell --> update the log board with the value of the cell
+
+Consider this grid: [[0, 0, 0], [0, 2, 0], [0, 0, 0]]
+
+User clicks on x0y0 --> 0 - -
+                        - - -
+                        - - -
+
+User clicks on x1y1 --> - - -
+                        - 2 -
+                        - - -
+

@@ -1,4 +1,8 @@
-const { createInitialGrid, createGridForLog } = require("../src/template");
+const {
+  createInitialGrid,
+  createGridForLog,
+  addMineToGrid,
+} = require("../src/template");
 
 describe("This is a testsuite for a game called Minesweeper. The goal of the game is to ADD LATER", () => {
   describe("Minesweeper is played on a game board, which is a square grid. We need to create a starting version of the grid first, filled with 0s", () => {
@@ -29,6 +33,17 @@ describe("This is a testsuite for a game called Minesweeper. The goal of the gam
       ).toEqual(`- - -
 - - -
 - - -`);
+    });
+  });
+  describe("Mines have to be added to the game board. The mines are represented by Xs", () => {
+    it("x0y0 --> [[X,0,0],[0,0,0],[0,0,0]]", () => {
+      const grid = createInitialGrid(3);
+      addMineToGrid(grid, 0, 0);
+      expect(grid).toEqual([
+        ["X", 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+      ]);
     });
   });
 });

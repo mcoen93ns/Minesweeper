@@ -1,10 +1,22 @@
+/* eslint-disable no-param-reassign */
 function createInitialGrid(size) {
-  return Array(size).fill(Array(size).fill(0));
+  const grid = [];
+  for (let i = 0; i < size; i += 1) {
+    const row = [];
+    for (let j = 0; j < size; j += 1) {
+      row.push(0);
+    }
+    grid.push(row);
+  }
+  return grid;
 }
 
-// Create a copy of the grid with the same size but with dashes instead of zeroes that will be printed in the log, should contain line breaks
 function createGridForLog(grid) {
   return grid.map((row) => row.map(() => "-").join(" ")).join("\n");
 }
 
-module.exports = { createInitialGrid, createGridForLog };
+function addMineToGrid(grid, x, y) {
+  grid[y][x] = "X";
+}
+
+module.exports = { createInitialGrid, createGridForLog, addMineToGrid };

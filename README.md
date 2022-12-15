@@ -13,3 +13,10 @@ Create a grid that will be shown to the user, intially empty cells
            - - -
            - - -'
 
+Add a mine (X) to the board on provided coordinates
+
+Consider this grid: [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+
+✔ x: 0, y: 0 --> [[X, 0, 0], [0, 0, 0], [0, 0, 0]]
+x: 1, y: 0 --> [[0, X, 0], [0, 0, 0], [0, 0, 0]]
+x: 1, y: 2 --> [[0, 0, 0], [0, 0, 0], [0, X, 0]]

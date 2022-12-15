@@ -19,11 +19,22 @@ function addMineToGrid(grid, x, y) {
   grid[y][x] = "X";
 }
 
-// generate random x and y coordinates based on the grid
 function generateRandomCoordinates(grid) {
   const x = Math.floor(Math.random() * grid.length);
   const y = Math.floor(Math.random() * grid.length);
   return [x, y];
+}
+
+// function createGridWithMines(size, mines) {
+//   const grid = createInitialGrid(size);
+//   for (let i = 0; i < mines; i += 1) {
+//     const [x, y] = generateRandomCoordinates(grid);
+//     addMineToGrid(grid, x, y);
+//   }
+//   return grid;
+// }
+function isMine(grid, x, y) {
+  return grid[y][x] === "X";
 }
 
 module.exports = {
@@ -31,4 +42,6 @@ module.exports = {
   createGridForLog,
   addMineToGrid,
   generateRandomCoordinates,
+  // createGridWithMines,
+  isMine,
 };

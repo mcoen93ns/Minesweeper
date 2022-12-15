@@ -3,6 +3,8 @@ const {
   createGridForLog,
   addMineToGrid,
   generateRandomCoordinates,
+  // createGridWithMines,
+  isMine,
 } = require("../src/template");
 
 describe("This is a testsuite for a game called Minesweeper. The goal of the game is to ADD LATER", () => {
@@ -73,6 +75,34 @@ describe("This is a testsuite for a game called Minesweeper. The goal of the gam
       expect(x).toBeLessThanOrEqual(2);
       expect(y).toBeGreaterThanOrEqual(0);
       expect(y).toBeLessThanOrEqual(2);
+    });
+  });
+  describe("Now that we have created a board, we can start with functionality to play the game", () => {
+    describe("We need to check if a cell is a mine. Consider the following game board: [[0, 0, 0], [0, X, 0], [0, 0, 0]]", () => {
+      it("x0y0 --> false", () => {
+        const grid = [
+          [0, 0, 0],
+          [0, "X", 0],
+          [0, 0, 0],
+        ];
+        expect(isMine(grid, 0, 0)).toBe(false);
+      });
+      it("x1y1 --> true", () => {
+        const grid = [
+          [0, 0, 0],
+          [0, "X", 0],
+          [0, 0, 0],
+        ];
+        expect(isMine(grid, 1, 1)).toBe(true);
+      });
+      it("x2y2 --> false", () => {
+        const grid = [
+          [0, 0, 0],
+          [0, "X", 0],
+          [0, 0, 0],
+        ];
+        expect(isMine(grid, 2, 2)).toBe(false);
+      });
     });
   });
 });

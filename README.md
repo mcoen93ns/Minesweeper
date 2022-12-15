@@ -11,7 +11,7 @@ Create a grid that will be shown to the user, intially empty cells
 ✔ 1x1 --> '-'
 ✔ 3x3 --> '- - -
            - - -
-           - - -'
+           - - -' 
 
 Add a mine (X) to the board on provided coordinates
 

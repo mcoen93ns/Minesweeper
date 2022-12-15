@@ -19,4 +19,16 @@ function addMineToGrid(grid, x, y) {
   grid[y][x] = "X";
 }
 
-module.exports = { createInitialGrid, createGridForLog, addMineToGrid };
+// generate random x and y coordinates based on the grid
+function generateRandomCoordinates(grid) {
+  const x = Math.floor(Math.random() * grid.length);
+  const y = Math.floor(Math.random() * grid.length);
+  return [x, y];
+}
+
+module.exports = {
+  createInitialGrid,
+  createGridForLog,
+  addMineToGrid,
+  generateRandomCoordinates,
+};

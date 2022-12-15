@@ -2,6 +2,7 @@ const {
   createInitialGrid,
   createGridForLog,
   addMineToGrid,
+  generateRandomCoordinates,
 } = require("../src/template");
 
 describe("This is a testsuite for a game called Minesweeper. The goal of the game is to ADD LATER", () => {
@@ -62,6 +63,16 @@ describe("This is a testsuite for a game called Minesweeper. The goal of the gam
         [0, 0, 0],
         [0, 0, "X"],
       ]);
+    });
+  });
+  describe("We need to generate random coordinates for the mines. The coordinates should be within the grid", () => {
+    it("x and y should be between 0 and 2 when the grid is 3x3", () => {
+      const grid = createInitialGrid(3);
+      const [x, y] = generateRandomCoordinates(grid);
+      expect(x).toBeGreaterThanOrEqual(0);
+      expect(x).toBeLessThanOrEqual(2);
+      expect(y).toBeGreaterThanOrEqual(0);
+      expect(y).toBeLessThanOrEqual(2);
     });
   });
 });

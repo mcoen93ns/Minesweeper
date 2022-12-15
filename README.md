@@ -20,3 +20,9 @@ Consider this grid: [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 ✔ x: 0, y: 0 --> [[X, 0, 0], [0, 0, 0], [0, 0, 0]]
 ✔ x: 1, y: 0 --> [[0, X, 0], [0, 0, 0], [0, 0, 0]]
 ✔ x: 1, y: 2 --> [[0, 0, 0], [0, 0, 0], [0, X, 0]]
+
+Generate random x and y coordinates for the mines, based on the grid size
+
+Consider this grid: [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+
+✔ x and y >= 0 && <= 2

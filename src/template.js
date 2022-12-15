@@ -1,5 +1,5 @@
-function templateFunction(x) {
-  return x / 2;
+function createInitialGrid(size) {
+  return Array(size).fill(Array(size).fill(0));
 }
 
-module.exports = templateFunction;
+module.exports = { createInitialGrid };

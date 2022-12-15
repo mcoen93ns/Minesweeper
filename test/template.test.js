@@ -1,4 +1,4 @@
-const { createInitialGrid } = require("../src/template");
+const { createInitialGrid, createGridForLog } = require("../src/template");
 
 describe("This is a testsuite for a game called Minesweeper. The goal of the game is to ADD LATER", () => {
   describe("Minesweeper is played on a game board, which is a square grid. We need to create a starting version of the grid first, filled with 0s", () => {
@@ -11,6 +11,24 @@ describe("This is a testsuite for a game called Minesweeper. The goal of the gam
         [0, 0, 0],
         [0, 0, 0],
       ]);
+    });
+  });
+  describe("There should also be a copy of the game board that will be shown to the user. Initially, this board should not show anything. For simplicity, we will show dashes", () => {
+    it("1x1 --> -", () => {
+      expect(createGridForLog([[0]])).toEqual("-");
+    });
+    it(`3x3 --> - - -
+                - - -
+                - - -`, () => {
+      expect(
+        createGridForLog([
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0],
+        ])
+      ).toEqual(`- - -
+- - -
+- - -`);
     });
   });
 });

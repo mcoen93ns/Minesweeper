@@ -7,6 +7,7 @@ const {
   isMine,
   countMinesInRow,
   countMinesInColumn,
+  countMinesInDiagonal,
 } = require("../src/template");
 
 describe("This is a testsuite for a game called Minesweeper. The goal of the game is to ADD LATER", () => {
@@ -127,6 +128,41 @@ describe("This is a testsuite for a game called Minesweeper. The goal of the gam
         ["X", 0, 0],
       ];
       expect(countMinesInColumn(0, 1, grid)).toBe(2);
+    });
+  });
+
+  describe("Check the number of mines that are diagonal to a cell in the grid", () => {
+    it("x0y0, [[0, 0, 0], [0, 0, 0], [0, 0, 0]] --> 0", () => {
+      const grid = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+      ];
+      expect(countMinesInDiagonal(0, 0, grid)).toBe(0);
+    });
+    it("x0y0, [[0, 0, 0], [0, X, 0], [0, 0, 0]] --> 1", () => {
+      const grid = [
+        [0, 0, 0],
+        [0, "X", 0],
+        [0, 0, 0],
+      ];
+      expect(countMinesInDiagonal(0, 0, grid)).toBe(1);
+    });
+    it("x1y1, [[0, 0, X], [0, 0, 0], [X, 0, 0]] --> 2", () => {
+      const grid = [
+        [0, 0, "X"],
+        [0, 0, 0],
+        ["X", 0, 0],
+      ];
+      expect(countMinesInDiagonal(1, 1, grid)).toBe(2);
+    });
+    it("x1y1, [[X, 0, X], [0, 0, 0], [X, 0, X]] --> 4", () => {
+      const grid = [
+        ["X", 0, "X"],
+        [0, 0, 0],
+        ["X", 0, "X"],
+      ];
+      expect(countMinesInDiagonal(1, 1, grid)).toBe(4);
     });
   });
 

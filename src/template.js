@@ -57,6 +57,23 @@ function countMinesInColumn(x, y, grid) {
   return count;
 }
 
+function countMinesInDiagonal(x, y, grid) {
+  let count = 0;
+  if (grid[y - 1] && grid[y - 1][x - 1] === "X") {
+    count += 1;
+  }
+  if (grid[y - 1] && grid[y - 1][x + 1] === "X") {
+    count += 1;
+  }
+  if (grid[y + 1] && grid[y + 1][x - 1] === "X") {
+    count += 1;
+  }
+  if (grid[y + 1] && grid[y + 1][x + 1] === "X") {
+    count += 1;
+  }
+  return count;
+}
+
 module.exports = {
   createInitialGrid,
   createGridForLog,
@@ -66,4 +83,5 @@ module.exports = {
   isMine,
   countMinesInRow,
   countMinesInColumn,
+  countMinesInDiagonal,
 };

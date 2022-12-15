@@ -43,6 +43,12 @@ Check how many mines are directly above and below a cell
 
 Check how many mines are directly diagonal to a cell
 
+✔ x0y0, [[0, 0, 0], [0, 0, 0], [0, 0, 0]] --> 0
+✔ x0y0, [[0, 0, 0], [0, X, 0], [0, 0, 0]] --> 1
+✔ x1y1, [[0, 0, X], [0, 0, 0], [X, 0, 0]] --> 2
+✔ x1y1, [[X, 0, X], [0, 0, 0], [X, 0, X]] --> 4
+
+
 Game board with mines added to it: determine the values of the other cells (number of surrounding mines)
 
 [[0, 0, 0], [0, 0, 0], [0, 0, 0]] --> [[0, 0, 0], [0, 0, 0], [0, 0, 0]]

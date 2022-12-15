@@ -45,5 +45,23 @@ describe("This is a testsuite for a game called Minesweeper. The goal of the gam
         [0, 0, 0],
       ]);
     });
+    it("x1y1 --> [[0,0,0],[0,X,0],[0,0,0]]", () => {
+      const grid = createInitialGrid(3);
+      addMineToGrid(grid, 1, 1);
+      expect(grid).toEqual([
+        [0, 0, 0],
+        [0, "X", 0],
+        [0, 0, 0],
+      ]);
+    });
+    it("x2y2 --> [[0,0,0],[0,0,0],[0,0,X]]", () => {
+      const grid = createInitialGrid(3);
+      addMineToGrid(grid, 2, 2);
+      expect(grid).toEqual([
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, "X"],
+      ]);
+    });
   });
 });

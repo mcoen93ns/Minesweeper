@@ -5,6 +5,8 @@ const {
   generateRandomCoordinates,
   // createGridWithMines,
   isMine,
+  countMinesInRow,
+  countMinesInColumn,
 } = require("../src/template");
 
 describe("This is a testsuite for a game called Minesweeper. The goal of the game is to ADD LATER", () => {
@@ -77,6 +79,57 @@ describe("This is a testsuite for a game called Minesweeper. The goal of the gam
       expect(y).toBeLessThanOrEqual(2);
     });
   });
+
+  describe("Check how many mines are directly next to a cell in a row", () => {
+    it("0, [0, 0, 0] --> 0", () => {
+      expect(countMinesInRow(0, [0, 0, 0])).toBe(0);
+    });
+    it("0, [0, X, 0] --> 1", () => {
+      expect(countMinesInRow(0, [0, "X", 0])).toBe(1);
+    });
+    it("1, [X, 0, 0] --> 1", () => {
+      expect(countMinesInRow(1, ["X", 0, 0])).toBe(1);
+    });
+    it("1, [X, 0, X] --> 2", () => {
+      expect(countMinesInRow(1, ["X", 0, "X"])).toBe(2);
+    });
+  });
+
+  describe("Check number of mines directly above and below a cell in the grid", () => {
+    it("x0y0, [[0, 0, 0], [0, 0, 0], [0, 0, 0]] --> 0", () => {
+      const grid = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+      ];
+      expect(countMinesInColumn(0, 0, grid)).toBe(0);
+    });
+    it("x0y0, [[0, 0, 0], [0, X, 0], [0, 0, 0]] --> 0", () => {
+      const grid = [
+        [0, 0, 0],
+        [0, "X", 0],
+        [0, 0, 0],
+      ];
+      expect(countMinesInColumn(0, 0, grid)).toBe(0);
+    });
+    it("x0y0, [[0, 0, 0], [X, 0, 0], [0, 0, 0]] --> 1", () => {
+      const grid = [
+        [0, 0, 0],
+        ["X", 0, 0],
+        [0, 0, 0],
+      ];
+      expect(countMinesInColumn(0, 0, grid)).toBe(1);
+    });
+    it("x1y1, [[X, 0, 0], [0, 0, 0], [X, 0, 0]] --> 2", () => {
+      const grid = [
+        ["X", 0, 0],
+        [0, 0, 0],
+        ["X", 0, 0],
+      ];
+      expect(countMinesInColumn(0, 1, grid)).toBe(2);
+    });
+  });
+
   describe("Now that we have created a board, we can start with functionality to play the game", () => {
     describe("We need to check if a cell is a mine. Consider the following game board: [[0, 0, 0], [0, X, 0], [0, 0, 0]]", () => {
       it("x0y0 --> false", () => {

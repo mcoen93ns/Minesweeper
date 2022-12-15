@@ -27,6 +27,32 @@ Consider this grid: [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
 ✔ x and y >= 0 && <= 2
 
+Check how many mines are directly next to a cell in a row
+
+✔ 0, [0, 0, 0] --> 0
+✔ 0, [0, X, 0] --> 1
+✔ 1, [X, 0, 0] --> 1
+✔ 1, [X, 0, X] --> 2
+
+Check how many mines are directly above and below a cell
+
+✔ x0y0, [[0, 0, 0], [0, 0, 0], [0, 0, 0]] --> 0
+✔ x0y0, [[0, 0, 0], [0, X, 0], [0, 0, 0]] --> 0
+✔ x0y0, [[0, 0, 0], [X, 0, 0], [0, 0, 0]] --> 1
+✔ x0y1, [[X, 0, 0], [0, 0, 0], [X, 0, 0]] --> 2
+
+Check how many mines are directly diagonal to a cell
+
+Game board with mines added to it: determine the values of the other cells (number of surrounding mines)
+
+[[0, 0, 0], [0, 0, 0], [0, 0, 0]] --> [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+[["X", 0, 0], [0, 0, 0], [0, 0, 0]] --> [["X", 1, 0], [1, 1, 0], [0, 0, 0]]
+[["X", "X", "X"], [0, 0, 0], [0, 0, 0]] -->  [["X", "X", "X"], [2, 2, 2], [0, 0, 0]]
+
+
+
+
+
 INTEGRATION: Create a grid and add mines to it
 
 3x3, 0 mines

@@ -36,6 +36,26 @@ function generateRandomCoordinates(grid) {
 function isMine(grid, x, y) {
   return grid[y][x] === "X";
 }
+function countMinesInRow(placeOfCell, row) {
+  let count = 0;
+  if (row[placeOfCell - 1] === "X") {
+    count += 1;
+  }
+  if (row[placeOfCell + 1] === "X") {
+    count += 1;
+  }
+  return count;
+}
+function countMinesInColumn(x, y, grid) {
+  let count = 0;
+  if (grid[y - 1] && grid[y - 1][x] === "X") {
+    count += 1;
+  }
+  if (grid[y + 1] && grid[y + 1][x] === "X") {
+    count += 1;
+  }
+  return count;
+}
 
 module.exports = {
   createInitialGrid,
@@ -44,4 +64,6 @@ module.exports = {
   generateRandomCoordinates,
   // createGridWithMines,
   isMine,
+  countMinesInRow,
+  countMinesInColumn,
 };

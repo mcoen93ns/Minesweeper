@@ -73,6 +73,19 @@ function countMinesInDiagonal(x, y, grid) {
   }
   return count;
 }
+function calculateSurroundingMines(grid) {
+  for (let y = 0; y < grid.length; y += 1) {
+    for (let x = 0; x < grid.length; x += 1) {
+      if (grid[y][x] !== "X") {
+        grid[y][x] =
+          countMinesInRow(x, grid[y]) +
+          countMinesInColumn(x, y, grid) +
+          countMinesInDiagonal(x, y, grid);
+      }
+    }
+  }
+  return grid;
+}
 
 module.exports = {
   createInitialGrid,
@@ -84,4 +97,5 @@ module.exports = {
   countMinesInRow,
   countMinesInColumn,
   countMinesInDiagonal,
+  calculateSurroundingMines,
 };

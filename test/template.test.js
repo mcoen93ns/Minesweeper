@@ -8,6 +8,7 @@ const {
   countMinesInRow,
   countMinesInColumn,
   countMinesInDiagonal,
+  calculateSurroundingMines,
 } = require("../src/template");
 
 describe("This is a testsuite for a game called Minesweeper. The goal of the game is to ADD LATER", () => {
@@ -163,6 +164,41 @@ describe("This is a testsuite for a game called Minesweeper. The goal of the gam
         ["X", 0, "X"],
       ];
       expect(countMinesInDiagonal(1, 1, grid)).toBe(4);
+    });
+  });
+
+  describe("Now check and update the whole grid with the number of surrounding mines for cells", () => {
+    it("[[0, 0, 0], [0, 0, 0], [0, 0, 0]] --> [[0, 0, 0], [0, 0, 0], [0, 0, 0]]", () => {
+      const grid = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+      ];
+      expect(calculateSurroundingMines(grid)).toEqual(grid);
+    });
+    it("[[X, 0, 0], [0, 0, 0], [0, 0, 0]] --> [[X, 1, 0], [1, 1, 0], [0, 0, 0]]", () => {
+      const grid = [
+        ["X", 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+      ];
+      expect(calculateSurroundingMines(grid)).toEqual([
+        ["X", 1, 0],
+        [1, 1, 0],
+        [0, 0, 0],
+      ]);
+    });
+    it("[[X, X, X], [0, 0, 0], [0, 0, 0]] -->  [[X, X, X], [2, 2, 2], [0, 0, 0]]", () => {
+      const grid = [
+        ["X", "X", "X"],
+        [0, 0, 0],
+        [0, 0, 0],
+      ];
+      expect(calculateSurroundingMines(grid)).toEqual([
+        ["X", "X", "X"],
+        [2, 3, 2],
+        [0, 0, 0],
+      ]);
     });
   });
 

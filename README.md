@@ -48,15 +48,11 @@ Check how many mines are directly diagonal to a cell
 ✔ x1y1, [[0, 0, X], [0, 0, 0], [X, 0, 0]] --> 2
 ✔ x1y1, [[X, 0, X], [0, 0, 0], [X, 0, X]] --> 4
 
-
 Game board with mines added to it: determine the values of the other cells (number of surrounding mines)
 
-[[0, 0, 0], [0, 0, 0], [0, 0, 0]] --> [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-[["X", 0, 0], [0, 0, 0], [0, 0, 0]] --> [["X", 1, 0], [1, 1, 0], [0, 0, 0]]
-[["X", "X", "X"], [0, 0, 0], [0, 0, 0]] -->  [["X", "X", "X"], [2, 2, 2], [0, 0, 0]]
-
-
-
+✔ [[0, 0, 0], [0, 0, 0], [0, 0, 0]] --> [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+✔ [["X", 0, 0], [0, 0, 0], [0, 0, 0]] --> [["X", 1, 0], [1, 1, 0], [0, 0, 0]]
+✔ [["X", "X", "X"], [0, 0, 0], [0, 0, 0]] -->  [["X", "X", "X"], [2, 2, 2], [0, 0, 0]]
 
 
 INTEGRATION: Create a grid and add mines to it
